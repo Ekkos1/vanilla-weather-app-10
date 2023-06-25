@@ -50,21 +50,38 @@ function fetchWeather(city, units = "metric") {
 }
 
 function displayWeather(response) {
+  const data = response.data;
+  const weather = data.weather[0];
   let weatherSpan = document.querySelector("#temp");
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(data.main.temp);
   weatherSpan.innerHTML = `${temperature}`;
 
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
 
+  let weatherIcon = document.querySelector("#weather-icon");
+  weatherIcon.src = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`;
+
+  let weatherDesc = document.querySelector("#description");
+  weatherDesc.innerHTML = weather.description;
+
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = data.main.humidity;
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = data.wind.speed;
+
   weatherBlock.classList.remove("d-none");
 }
 
 function changeUnits(event) {
-  if (!event.target.dataset["units"]) {
+  if (
+    !event.target.dataset["units"] ||
+    currentUnits === event.target.dataset["units"]
+  ) {
     return;
   }
   currentUnits = event.target.dataset["units"];
+
   fetchWeather(curretCity, currentUnits);
 
   Array.from(unitsBlock.children).forEach((ch) =>

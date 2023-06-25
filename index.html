@@ -57,13 +57,21 @@
           <div class="col-sm-6">
             <h3 class="text-primary" id="city"></h3>
             <h3 class="text-primary" id="date"></h3>
+            <p id="description"></p>
           </div>
-          <div class="col-sm-6 d-flex">
-            <h3 class="text-primary display-1" id="temp"></h3>
-            <span class="ms-2" id="units">
-              <a href="#" data-units="metric" class="active-unit">°C</a> |
-              <a href="#" data-units="imperial" class="">°F</a>
-            </span>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center">
+              <img src="" alt="" id="weather-icon" />
+              <h3 class="text-primary display-1" id="temp"></h3>
+              <span class="ms-2 align-self-start" id="units">
+                <a href="#" data-units="metric" class="active-unit">°C</a> |
+                <a href="#" data-units="imperial" class="">°F</a>
+              </span>
+            </div>
+            <ul>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/h</li>
+            </ul>
           </div>
         </div>
       </div>
