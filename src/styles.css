@@ -6,3 +6,11 @@ body {
   color: black;
   text-decoration: none;
 }
+.footer {
+  position: fixed;
+  padding: 5px;
+  bottom: 1px;
+  width: 200%;
+  background-color: rgb(179, 236, 234);
+  color: rgb(22, 21, 21);
+}
