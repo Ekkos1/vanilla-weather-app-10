@@ -68,7 +68,9 @@ function displayWeather(response) {
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = data.main.humidity;
   let wind = document.querySelector("#wind");
-  wind.innerHTML = data.wind.speed;
+  wind.innerHTML = `${data.wind.speed} ${
+    currentUnits === "metric" ? "meter/sec" : "miles/hour"
+  }`;
 
   weatherBlock.classList.remove("d-none");
 }
