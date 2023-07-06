@@ -39,8 +39,8 @@ function search(event) {
   curretCity = document.querySelector("#city-input").value;
   fetchWeather(curretCity);
 }
-let searchForm = document.querySelector("#search-form1");
-searchForm.addEventListener("click", search);
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", search);
 
 function fetchWeather(city, units = "metric") {
   let key = "b56252c34ed3604f2468353a63a1b351";
